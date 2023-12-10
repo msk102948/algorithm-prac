@@ -12,22 +12,22 @@ package algorithm_interview;
 public class ValidPalindrome {
     public boolean isPalindromeCharArray(String str){
 
-        int strat = 0;
+        int start = 0;
         int end = str.length() - 1;
 
-        while (strat < end){
+        while (start < end){
             // 영숫자인지 판별하고 유효하지 않으면 한 칸씩 이동
-            if(!Character.isLetterOrDigit(str.charAt(strat))) {
-                strat ++;
+            if(!Character.isLetterOrDigit(str.charAt(start))) {
+                start ++;
             } else if(!Character.isLetterOrDigit(str.charAt(end))) {
                 end--;
             } else { // 유효한 문자라면 앞 글자와 뒷글자를 모두 소문자로 변경해 비교
-                if(Character.toLowerCase(str.charAt(strat)) != Character.toLowerCase(str.charAt(end))) {
+                if(Character.toLowerCase(str.charAt(start)) != Character.toLowerCase(str.charAt(end))) {
                     // 하나라도 일치하지 않는다면 팰린드롬이 아니므로 false 리턴
                     return false;
                 }
                 // 앞쪽 문자는 한 칸 뒤로, 뒤쪽 문자는 한 칸 앞으로 이동
-                strat++;
+                start++;
                 end--;
             }
         }
